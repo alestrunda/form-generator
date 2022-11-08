@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Config from "./components/Config/Config";
+import FormConfig from "./components/FormConfig/FormConfig";
 import FormElementRenderer from "./components/FormElementRenderer/FormElementRenderer";
 import Tabs from "./components/Tabs/Tabs";
 import { FormElement } from "./types";
@@ -33,7 +33,7 @@ const App = () => {
       />
       <div className="app__form">
         {activeTabIndex === Tab.Config && (
-          <Config onApplied={handleConfigApplied} />
+          <FormConfig onApplied={handleConfigApplied} />
         )}
         {activeTabIndex === Tab.Render && (
           <>
