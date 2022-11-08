@@ -33,6 +33,12 @@ li {
   padding: 0;
 }
 
+pre {
+  background-color: black;
+  color: white;
+  padding: 12px;
+}
+
 textarea {
   height: 80px;
 }

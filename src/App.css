@@ -12,6 +12,7 @@
 
 .btn-apply {
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .form-row {
@@ -40,4 +41,12 @@
 
 .tabs__item.active .tabs__btn {
   background-color: darkcyan;
+}
+
+.text-red {
+  color: #A00;
+}
+
+.textarea-config {
+  height: 500px;
 }

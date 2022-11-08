@@ -15,6 +15,43 @@ const parseConfig = (config: string) => {
   return items as FormElement[];
 };
 
+const exampleConfig = `{
+  "items": [
+    {
+      "label": "radio",
+      "type": "radio"
+    },
+    {
+      "label": "checkbox",
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "label": "date field",
+      "type": "date",
+      "value": "2022-01-01"
+    },
+    {
+      "label": "text field",
+      "type": "text"
+    },
+    {
+      "label": "number field",
+      "type": "number",
+      "value": 10
+    },
+    {
+      "label": "textarea",
+      "type": "textarea",
+      "value": "lorem ipsum"
+    },
+    {
+      "label": "Submit",
+      "type": "button"
+    }
+  ]
+}`;
+
 const Config = ({ onApplied }: Props) => {
   const [config, setConfig] = useState("");
   const [isValid, setIsValid] = useState(false);
@@ -39,11 +76,20 @@ const Config = ({ onApplied }: Props) => {
 
   return (
     <div>
-      <textarea onChange={handleConfigChange} value={config} />
-      {config && !isValid && <p>The config does not appear to be valid.</p>}
+      <textarea
+        className="textarea-config"
+        onChange={handleConfigChange}
+        value={config}
+      />
+      {config && !isValid && (
+        <p className="text-red">The config does not appear to be valid.</p>
+      )}
       <button className="btn-apply" onClick={handleApplyClick}>
         Apply
       </button>
+      <hr />
+      <p>Example:</p>
+      <pre>{exampleConfig}</pre>
     </div>
   );
 };

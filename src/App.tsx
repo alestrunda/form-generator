@@ -31,6 +31,7 @@ const App = () => {
         {activeTabIndex === 0 && <Config onApplied={handleConfigApplied} />}
         {activeTabIndex === 1 && (
           <div>
+            {!formElements.length && <p>Nothing to render</p>}
             {formElements.map((element, index) => (
               /* TODO: is it ok to use index as a key, or generate unique id? */
               <FormElementRenderer key={index} element={element} />
