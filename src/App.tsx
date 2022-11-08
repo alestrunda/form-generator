@@ -13,13 +13,18 @@ enum Tab {
 
 const App = () => {
   const [formElements, setFormElements] = useState<FormElement[]>([]);
+  const [formTitle, setFormTitle] = useState<string | undefined>();
   const [activeTabIndex, setActiveTab] = useState(Tab.Config);
 
   const handleTabChange = (index: number) => {
     setActiveTab(index);
   };
 
-  const handleConfigApplied = (formElements: FormElement[]) => {
+  const handleConfigApplied = (
+    formElements: FormElement[],
+    formTitle: string | undefined
+  ) => {
+    setFormTitle(formTitle);
     setFormElements(formElements);
     setActiveTab(Tab.Render);
   };
@@ -38,6 +43,7 @@ const App = () => {
         {activeTabIndex === Tab.Render && (
           <>
             {!formElements.length && <p>Nothing to render</p>}
+            {formTitle && <h1>{formTitle}</h1>}
             {formElements.map((element, index) => (
               /* TODO: not sure if using index for key could cause issues in this case,
               for sake of simplicity I'll keep the index */

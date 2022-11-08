@@ -2,20 +2,27 @@ import { useState } from "react";
 import { FormElement, isFormElement } from "../../types";
 
 interface Props {
-  onApplied: (formElements: FormElement[]) => void;
+  onApplied: (
+    formElements: FormElement[],
+    formTitle: string | undefined
+  ) => void;
 }
 
 const parseConfig = (config: string) => {
-  const { items } = JSON.parse(config);
+  const { items, title } = JSON.parse(config);
   items.forEach((item: unknown) => {
     if (!isFormElement(item)) {
       throw new Error("Wrong element syntax");
     }
   });
-  return items as FormElement[];
+  if (!["string", "undefined"].includes(typeof title)) {
+    throw new Error("Wrong title syntax");
+  }
+  return { items: items as FormElement[], title: title as string | undefined };
 };
 
 const exampleConfig = `{
+  "title": "Form 1",
   "items": [
     {
       "label": "radio",
@@ -76,8 +83,8 @@ const Config = ({ onApplied }: Props) => {
     if (!isValid) {
       return;
     }
-    const formElements = parseConfig(config);
-    onApplied(formElements);
+    const { items: formElements, title: formTitle } = parseConfig(config);
+    onApplied(formElements, formTitle);
   };
 
   return (
