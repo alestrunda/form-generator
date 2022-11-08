@@ -19,7 +19,13 @@ const exampleConfig = `{
   "items": [
     {
       "label": "radio",
-      "type": "radio"
+      "options": [
+        { "label": "Red", "value": "red" },
+        { "label": "Green", "value": "green" },
+        { "label": "Blue", "value": "blue" }
+      ],
+      "type": "radio",
+      "value": "green"
     },
     {
       "label": "checkbox",

@@ -25,6 +25,10 @@
   margin-right: 15px;
 }
 
+.radio-option {
+  margin-right: 15px;
+}
+
 .tabs {
   display: flex;
 }
