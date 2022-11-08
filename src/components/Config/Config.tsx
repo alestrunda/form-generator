@@ -41,7 +41,9 @@ const Config = ({ onApplied }: Props) => {
     <div>
       <textarea onChange={handleConfigChange} value={config} />
       {config && !isValid && <p>The config does not appear to be valid.</p>}
-      <button onClick={handleApplyClick}>Apply</button>
+      <button className="btn-apply" onClick={handleApplyClick}>
+        Apply
+      </button>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 export interface FormElement {
   label: string;
   type: string;
+  value?: string | boolean | number;
 }
 
 export function isFormElement(element: unknown): element is FormElement {

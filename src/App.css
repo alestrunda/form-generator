@@ -1,3 +1,43 @@
+.app {
+  max-width: 800px;
+  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app__form {
+  border: 1px solid #000;
+  padding: 30px;
+}
+
+.btn-apply {
+  margin-top: 20px;
+}
+
+.form-row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.form-row__label {
+  width: 150px;
+  margin-right: 15px;
+}
+
 .tabs {
   display: flex;
+}
+
+.tabs__btn {
+  border: 1px solid #000;
+  border-bottom: 0;
+  padding: 5px 15px;
+}
+
+.tabs__item {
+  margin-right: 5px;
+}
+
+.tabs__item.active .tabs__btn {
+  background-color: darkcyan;
 }

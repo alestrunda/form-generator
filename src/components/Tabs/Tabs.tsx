@@ -9,7 +9,12 @@ interface Props {
 const Tabs = ({ activeIndex, onChange, tabs }: Props) => (
   <ul className="tabs">
     {tabs.map((tabTitle, index) => (
-      <Tab index={index} isActive={activeIndex === index} onChange={onChange}>
+      <Tab
+        key={index}
+        index={index}
+        isActive={activeIndex === index}
+        onChange={onChange}
+      >
         {tabTitle}
       </Tab>
     ))}

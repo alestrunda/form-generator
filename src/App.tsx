@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Config from "./components/Config/Config";
+import FormElementRenderer from "./components/FormElementRenderer/FormElementRenderer";
 import Tabs from "./components/Tabs/Tabs";
 import { FormElement } from "./types";
 
@@ -14,23 +15,29 @@ const App = () => {
   };
 
   const handleConfigApplied = (formElements: FormElement[]) => {
+    console.log(formElements);
     setFormElements(formElements);
     setActiveTab(1);
   };
 
   return (
-    <div>
+    <div className="app">
       <Tabs
         activeIndex={activeTabIndex}
         onChange={handleTabChange}
         tabs={["Config", "Result"]}
       />
-      {activeTabIndex === 0 && (
-        <div>
-          <Config onApplied={handleConfigApplied} />
-        </div>
-      )}
-      {activeTabIndex === 1 && <div>Result</div>}
+      <div className="app__form">
+        {activeTabIndex === 0 && <Config onApplied={handleConfigApplied} />}
+        {activeTabIndex === 1 && (
+          <div>
+            {formElements.map((element, index) => (
+              /* TODO: is it ok to use index as a key, or generate unique id? */
+              <FormElementRenderer key={index} element={element} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

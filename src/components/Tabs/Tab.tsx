@@ -9,7 +9,9 @@ interface Props {
 
 const Tab = ({ children, index, isActive, onChange }: Props) => (
   <li className={classNames({ active: isActive }, "tabs__item")}>
-    <button onClick={() => onChange(index)}>{children}</button>
+    <button className="tabs__btn" onClick={() => onChange(index)} type="button">
+      {children}
+    </button>
   </li>
 );
 
