@@ -20,7 +20,7 @@ const FormElementRenderer = ({ element }: { element: FormElement }) => {
       {element.type === "radio" && (
         <>
           {element.options?.map((option) => (
-            <label className="radio-option">
+            <label key={option.value} className="radio-option">
               <input checked={option.value === element.value} type="radio" />{" "}
               {option.label}
               <br />
