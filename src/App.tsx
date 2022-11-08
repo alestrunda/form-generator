@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Tabs from "./components/Tabs/Tabs";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [activeTabIndex, setActiveTab] = useState(0);
+
+  const handleTabChange = (index: number) => {
+    setActiveTab(index);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Tabs
+        activeIndex={activeTabIndex}
+        onChange={handleTabChange}
+        tabs={["Config", "Result"]}
+      />
+      {activeTabIndex === 0 && <div>Config</div>}
+      {activeTabIndex === 1 && <div>Result</div>}
     </div>
   );
-}
+};
 
 export default App;
